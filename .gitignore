@@ -1,0 +1,18 @@
+# Materiais pagos: não versionar em nenhuma hipótese.
+# Os PDFs completos são o produto vendido.
+materiais-produto/
+*.pdf
+
+# Dados pessoais e exportações de leads (ficam só na máquina local)
+00-entrada/privado/
+09-comercial/dados-reais/
+
+# Arquivos do sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Credenciais e dependências
+.env
+.env.*
+node_modules/
