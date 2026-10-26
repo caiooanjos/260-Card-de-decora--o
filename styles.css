@@ -21,7 +21,7 @@ body {
 }
 img { display: block; max-width: 100%; height: auto; }
 h1, h2, h3 { font-family: var(--serif); line-height: 1.2; margin: 0 0 .5em; font-weight: 700; }
-h1 { font-size: clamp(1.9rem, 6.4vw, 3rem); letter-spacing: -.01em; }
+h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); letter-spacing: -.01em; }
 h2 { font-size: clamp(1.5rem, 4.6vw, 2.1rem); }
 h3 { font-size: 1.2rem; }
 p { margin: 0 0 1em; }
@@ -44,7 +44,11 @@ p { margin: 0 0 1em; }
 /* 1. Abertura */
 .hero { display: grid; gap: 20px; padding-top: 8px; padding-bottom: 40px; }
 .lead { font-size: 1.1rem; color: var(--texto-2); max-width: 34em; }
+.apoio { font-weight: 600; max-width: 34em; }
+.oferta-linha { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; margin-bottom: .7em; }
+.oferta-linha strong { color: var(--verde); }
 .cta-linha { margin-bottom: .6em; }
+.cta-linha .btn { display: block; }
 .hero-texto .nota { margin-bottom: 0; }
 
 .leque { position: relative; display: flex; justify-content: center; gap: 2%; align-items: flex-start; padding: 4px 0 8px; }
@@ -56,8 +60,13 @@ p { margin: 0 0 1em; }
 .leque .l2 { margin-top: 26px; position: relative; z-index: 1; }
 .leque .l3 { transform: rotate(4deg); margin-left: -1%; margin-top: 6px; }
 
-/* 2. Dúvidas */
-.duvidas { padding-top: 40px; padding-bottom: 32px; border-top: 1px solid var(--linha); }
+/* 2. Identificação */
+.identifica { padding-top: 36px; padding-bottom: 12px; border-top: 1px solid var(--linha); }
+.identifica h2 { max-width: 20em; }
+.identifica p { color: var(--texto-2); max-width: 38em; margin-bottom: 0; }
+
+/* 3. Amostras */
+.duvidas { padding-top: 32px; padding-bottom: 32px; border-top: 1px solid var(--linha); }
 .intro { color: var(--texto-2); max-width: 36rem; margin-bottom: 28px; }
 .duvida { display: grid; gap: 22px; margin-bottom: 44px; align-items: center; }
 .duvida:last-child { margin-bottom: 0; }
@@ -90,13 +99,17 @@ p { margin: 0 0 1em; }
 .passos p { margin: 0; color: #4a4e47; }
 
 /* 4. Formato */
-.formato { display: grid; gap: 28px; align-items: center; padding-top: 64px; padding-bottom: 64px; }
+.formato { display: grid; gap: 28px; align-items: center; padding-top: 56px; padding-bottom: 40px; }
 .a4 { width: min(100%, 420px); margin: 0 auto; }
 .a4 img { width: 100%; border: 1px solid var(--linha); background: #fff; box-shadow: 0 10px 24px rgba(37,40,35,.13); }
 .formato-texto p { color: var(--texto-2); max-width: 32em; }
+.lista { margin: 0 0 1em; padding-left: 1.1em; color: var(--texto-2); max-width: 32em; }
+.lista li { margin-bottom: .5em; }
+.lista strong, .formato-texto p strong { color: var(--texto); }
+.nao-inclui { margin: 16px 0 24px; padding-left: 1.1em; color: var(--texto-2); }
 
 /* 5. Incluído */
-.incluido { padding-top: 56px; padding-bottom: 56px; border-top: 1px solid var(--linha); }
+.incluido { padding-top: 8px; padding-bottom: 56px; }
 .inclui { display: grid; gap: 24px; margin: 24px 0; }
 .inclui ul { margin: 0; padding-left: 1.1em; color: var(--texto-2); }
 .inclui li { margin-bottom: .4em; }
@@ -173,4 +186,5 @@ dialog figcaption { margin-top: 10px; text-align: center; color: var(--texto-2);
   .duvidas { padding-top: 72px; padding-bottom: 72px; }
   .oferta-in { grid-template-columns: 1.3fr 1fr; gap: 64px; }
 }
+@media (min-width: 720px) { .cta-linha .btn { display: inline-block; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

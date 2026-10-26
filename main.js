@@ -20,9 +20,30 @@
       return url.toString();
     } catch (e) { return null; }
   }
+  // Rastreamento só de saída: o evento nunca bloqueia nem atrasa a navegação.
+  function registrarCliqueCheckout(localizacao) {
+    try {
+      if (typeof window.fbq === "function") {
+        window.fbq("trackCustom", "CheckoutClick", {
+          content_name: "260 Cards de Decoração",
+          content_ids: ["260-cards"],
+          cta_location: localizacao
+        });
+      }
+    } catch (erro) {
+      // O rastreamento não pode impedir a navegação.
+    }
+  }
+
   var href = checkoutHref();
   if (href) {
-    document.querySelectorAll("[data-cta]").forEach(function (a) { a.href = href; a.rel = "noopener"; });
+    document.querySelectorAll("[data-cta]").forEach(function (a) {
+      a.href = href; a.rel = "noopener";
+      var local = a.dataset.cta;
+      // Um listener por link. auxclick cobre o clique do meio (nova aba), que não gera "click".
+      a.addEventListener("click", function () { registrarCliqueCheckout(local); });
+      a.addEventListener("auxclick", function (e) { if (e.button === 1) registrarCliqueCheckout(local); });
+    });
     var cta = document.getElementById("cta-oferta");
     var aviso = document.getElementById("aviso-compra");
     if (cta) cta.hidden = false;
@@ -31,9 +52,10 @@
 
   // --- Dados comerciais, exibidos só quando confirmados ---
   var bloco = document.getElementById("bloco-preco");
-  if (bloco && O.preco) {
-    document.getElementById("preco-valor").textContent = O.preco;
-    bloco.hidden = false;
+  if (O.preco) {
+    document.querySelectorAll("[data-preco]").forEach(function (el) { el.textContent = O.preco; });
+    document.querySelectorAll("[data-preco-frase]").forEach(function (el) { el.hidden = false; });
+    if (bloco) bloco.hidden = false;
   }
   document.querySelectorAll("[data-rodape]").forEach(function (p) {
     var v = O[p.dataset.rodape];

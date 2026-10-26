@@ -11,7 +11,9 @@ Conteúdo:
 Preço: R$ 19,99 (informado por Caio em 15/10/2026; valor final exibido no checkout da Cakto, que inclui a taxa de serviço de R$ 0,99. A taxa não é mencionada na página.)
 Condições de pagamento: Pix, cartão de crédito, PicPay, Google Pay e Apple Pay (informado por Caio em 15/10/2026)
 URL do checkout: https://pay.cakto.com.br/mb97szx_1193287 (informada por Caio em 15/10/2026)
-Forma de entrega: PENDENTE
+Forma de entrega: área de membros da Cakto (informado por Caio em 23/10/2026)
+Bônus "guia de impressão": NÃO confirmado como entregue aos compradores; não consta na página.
+Meta Pixel: 1414401270807362 (conferido no conjunto de anúncios; sem API de Conversões).
 Prazo de acesso: PENDENTE
 Política de reembolso: PENDENTE
 Contato de suporte: PENDENTE

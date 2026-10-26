@@ -5,7 +5,7 @@ window.OFERTA = {
   preco: "R$ 19,99",      // informado por Caio em 15/10/2026 (valor final que a pessoa vê no checkout)
   pagamento: "Pix, cartão de crédito, PicPay, Google Pay ou Apple Pay", // informado por Caio em 15/10/2026
   checkoutUrl: "https://pay.cakto.com.br/mb97szx_1193287",  // informado por Caio em 15/10/2026
-  entrega: "",            // PENDENTE (forma de entrega)
+  entrega: "Área de membros da Cakto", // informado por Caio em 23/10/2026
   prazoAcesso: "",        // PENDENTE
   reembolso: "",          // PENDENTE
   suporteContato: "",     // PENDENTE (e-mail ou WhatsApp)
