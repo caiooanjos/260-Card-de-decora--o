@@ -1,0 +1,91 @@
+/* Variante para estudantes. Carrega depois de ../styles.css e só acrescenta
+   o que a página original não tem; tokens e componentes vêm de lá. */
+
+:root {
+  /* Grade de papel quadriculado: referência à mesa de estudo, usada só na
+     prancheta da abertura e nos quadros de sugestão. */
+  --grade: linear-gradient(var(--linha) 1px, transparent 1px) 0 0 / 22px 22px,
+           linear-gradient(90deg, var(--linha) 1px, transparent 1px) 0 0 / 22px 22px;
+}
+
+/* 1. Abertura */
+.e-hero { padding-top: 8px; padding-bottom: 36px; }
+.e-hero-texto { max-width: 40em; }
+.e-ident { color: var(--verde); font-weight: 600; font-size: .95em; margin-bottom: .8em; }
+.e-hero h1 { font-size: clamp(1.75rem, 6.2vw, 2.7rem); max-width: 16em; }
+.e-hero .lead { font-size: 1.05rem; }
+.e-hero-texto .nota { margin-bottom: 0; }
+
+/* 1b. Primeira demonstração: card 047 */
+.e-demo { display: grid; gap: 22px; padding-top: 36px; padding-bottom: 44px; border-top: 1px solid var(--linha); }
+.e-demo h2 { margin: 0; max-width: 18em; }
+.demo-card { width: min(94%, 330px); }
+.demo-texto .orienta { margin-top: 8px; }
+.demo-texto .nota { margin: 12px 0 0; }
+
+/* 2. Relevância */
+.e-relevancia { padding-top: 40px; padding-bottom: 16px; border-top: 1px solid var(--linha); }
+.e-relevancia h2 { max-width: 19em; }
+.e-relevancia p { color: var(--texto-2); max-width: 36em; margin-bottom: 0; font-size: 1.05rem; }
+
+/* 3. Amostras como fichas de estudo */
+.e-amostras { padding-top: 40px; padding-bottom: 48px; }
+.ficha { display: grid; gap: 26px; padding: 32px 0; border-top: 1px solid var(--linha); }
+.ficha .amostra { width: min(80%, 300px); }
+.ficha h3 { font-size: clamp(1.35rem, 4.4vw, 1.7rem); margin-bottom: .6em; }
+.ficha h3 .num { display: block; font-family: var(--sans); font-size: .68em; font-weight: 700; color: var(--oliva); margin-bottom: .2em; font-variant-numeric: tabular-nums; }
+.orienta { font-family: var(--serif); font-size: 1.12rem; line-height: 1.55; margin-bottom: 1.2em; max-width: 30em; }
+.rotulo { display: block; font-family: var(--sans); font-size: .9em; font-weight: 600; color: var(--texto-2); margin-bottom: .25em; }
+.sugestao {
+  margin: 0; padding: 16px 18px 18px; border: 1px dashed #B9C0B0; border-radius: 4px;
+  background: var(--superficie); position: relative; max-width: 32em;
+}
+.sugestao::before { content: ""; position: absolute; inset: 0; background: var(--grade); opacity: .55; border-radius: 4px; pointer-events: none; }
+.sugestao dt, .sugestao dd { position: relative; }
+.sugestao dt { font-size: .9em; font-weight: 700; color: var(--verde); }
+.sugestao dd { margin: .2em 0 .9em; color: var(--texto); }
+.sugestao dd:last-child { margin-bottom: 0; }
+.cta-meio { margin: 8px 0 0; padding-top: 32px; border-top: 1px solid var(--linha); }
+.cta-meio .btn { display: block; }
+
+/* 4. Como usar */
+.e-passos { gap: 26px; }
+.e-escala { margin: 32px 0 0; font-weight: 600; border-left: 3px solid var(--oliva); padding-left: 12px; }
+
+/* 5. Assuntos */
+.e-assuntos { display: grid; gap: 20px; padding-top: 56px; padding-bottom: 16px; }
+.e-assuntos-texto p { color: var(--texto-2); max-width: 32em; }
+.e-assuntos-texto .nota { margin-bottom: 0; }
+.e-mapa { background: var(--superficie); border: 1px solid var(--linha); border-radius: 8px; padding: 6px 18px; }
+.e-mapa li:first-child { border-top: 0; }
+
+/* 6. Entrega */
+.e-nao { border-top: 1px solid var(--linha); padding-top: 1em; }
+
+@media (min-width: 720px) {
+  .e-demo { grid-template-columns: 330px minmax(0, 1fr); grid-template-areas: "card titulo" "card texto"; column-gap: 56px; row-gap: 18px; align-items: start; }
+  .e-demo h2 { grid-area: titulo; align-self: end; }
+  .demo-card { grid-area: card; width: 100%; margin: 0; }
+  .demo-texto { grid-area: texto; }
+  .ficha { grid-template-columns: 300px 1fr; gap: 48px; align-items: center; }
+  .ficha .amostra { width: 100%; }
+  .cta-meio .btn { display: inline-block; }
+  .e-passos { grid-template-columns: repeat(2, 1fr); }
+  .e-mapa { columns: 2; column-gap: 36px; }
+}
+@media (min-width: 960px) {
+  /* Abertura à esquerda, demonstração do 047 à direita (mesma seção do celular). */
+  .e-topo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 56px; align-items: start; padding-top: 32px; padding-bottom: 72px; }
+  .e-hero { position: sticky; top: 24px; padding: 24px 0 0; }
+  .e-hero h1 { font-size: 2.6rem; }
+  .e-demo {
+    grid-template-columns: minmax(0, 1fr); grid-template-areas: none; row-gap: 18px;
+    padding: 28px 32px 30px; background: var(--superficie); border: 1px solid var(--linha); border-radius: 8px;
+  }
+  .e-demo h2, .demo-card, .demo-texto { grid-area: auto; }
+  .e-demo h2 { font-size: 1.5rem; align-self: start; }
+  .demo-card { width: min(100%, 330px); margin: 4px 0 6px; }
+  .e-passos { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .e-assuntos { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 56px; align-items: start; padding-top: 80px; }
+  .e-amostras { padding-top: 64px; }
+}

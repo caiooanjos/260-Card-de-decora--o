@@ -21,14 +21,19 @@
     } catch (e) { return null; }
   }
   // Rastreamento só de saída: o evento nunca bloqueia nem atrasa a navegação.
+  // Variante da LP declarada no <body data-landing-variant="...">. A página original
+  // não declara variante, então o evento dela continua exatamente igual.
+  var variante = document.body && document.body.getAttribute("data-landing-variant");
   function registrarCliqueCheckout(localizacao) {
     try {
       if (typeof window.fbq === "function") {
-        window.fbq("trackCustom", "CheckoutClick", {
+        var params = {
           content_name: "260 Cards de Decoração",
           content_ids: ["260-cards"],
           cta_location: localizacao
-        });
+        };
+        if (variante) params.landing_variant = variante;
+        window.fbq("trackCustom", "CheckoutClick", params);
       }
     } catch (erro) {
       // O rastreamento não pode impedir a navegação.
