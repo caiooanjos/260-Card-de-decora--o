@@ -7,6 +7,11 @@ decoração em PDF para moradores.
 Público inicial: pessoas com a sala mobiliada que querem avaliar
 combinações e pequenos ajustes antes de comprar outra peça.
 
+Variante autorizada por Caio em 06/11/2026: página separada em
+estudantes/ para estudantes iniciantes de Design de Interiores e de
+Arquitetura interessados em interiores. Não altere a página dos
+moradores ao trabalhar nela. Leia docs/variante-estudantes.md.
+
 ## Fontes de informação
 - Leia docs/briefing-lp.md antes de implementar.
 - Leia docs/oferta.md para informações comerciais.
